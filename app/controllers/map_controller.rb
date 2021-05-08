@@ -21,4 +21,8 @@ class MapController < ApplicationController
         @url = 'https://api.mapbox.com/directions/v5/mapbox/driving/' + start_long + ',' + start_lat + ';' + end_long + ',' + end_lat + '?geometries=geojson&access_token=' + access_token
     end
 end
+# http://localhost:3000/origin-destination/-73;8891016/40;7410592/-73;9896416/40;7410592
+# https://learning.flatironschool.com/courses/1484/assignments/60885?module_item_id=113508
+# https://api.mapbox.com/directions/v5/mapbox/driving/-73.8891016,40.7410592;-73.9896416,40.7410592?geometries=geojson&access_token=pk.eyJ1IjoiYXJ6eSIsImEiOiJja284d25iODAyNm1oMnJtYjVnZmllaG1zIn0.P8siHAbm84-8l4B0b723qg
+
 

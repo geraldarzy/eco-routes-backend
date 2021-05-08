@@ -1,8 +1,8 @@
 class MapController < ApplicationController
     before_action :generate_url
-    def trial
+    def callAPI
         response = Excon.get(@url)
-        render json: response.JSON()
+        render json: response.body.gsub('=>', ':')
     end
 
     private
@@ -15,7 +15,7 @@ class MapController < ApplicationController
         start_lat = params['start_lat'].gsub(";", ".")
         end_long = params['end_long'].gsub(";", ".")
         end_lat = params['end_lat'].gsub(";", ".")
-        @url = 'https://api.mapbox.com/directions/v5/mapbox/driving/' + start_long + ',' + start_lat + ';' + end_long + ',' + end_lat + '?steps=true&geometries=geojson&access_token=' + access_token
+        @url = 'https://api.mapbox.com/directions/v5/mapbox/driving/' + start_long + ',' + start_lat + ';' + end_long + ',' + end_lat + '?geometries=geojson&access_token=' + access_token
     end
 end
 # http://localhost:3000/origin-destination/:start_long/:start_lat/:end_long/:end_lat

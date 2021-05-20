@@ -26,7 +26,9 @@ class UsersController < ApplicationController
     end
   end
 
-  
+  def show
+    render json: @current_user
+  end
 
   private
   def user_params

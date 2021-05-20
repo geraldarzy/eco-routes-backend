@@ -13,5 +13,24 @@ class UsersController < ApplicationController
     end
   end
   
+  def signup
+    @user = User.create(user_params)
+
+    if @user.valid?
+      # if the user is created successfully, send back the user
+      token = JWT.encode({ user_id: @user.id }, 's3cr3t', 'HS256')
+      render json: { user: UserSerializer.new(@user), token: token }
+    else
+      # otherwise, send back an error
+      render json: { errors:@user.errors.full_messages }, status: :unauthorized
+    end
+  end
+
   
+
+  private
+  def user_params
+    params.permit(:email, :password)
+  end
+
 end

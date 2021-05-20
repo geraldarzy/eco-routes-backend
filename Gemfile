@@ -19,6 +19,7 @@ gem 'excon'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'jwt'
+gem 'active_model_serializers'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

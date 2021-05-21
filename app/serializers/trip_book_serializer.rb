@@ -1,3 +1,3 @@
 class TripBookSerializer < ActiveModel::Serializer
-  attributes :id, :user_id
+  attributes :id
 end

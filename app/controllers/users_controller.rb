@@ -14,8 +14,8 @@ class UsersController < ApplicationController
   end
   
   def signup
-    @user = User.new(user_params)
-    tripbook = TripBook.create(user_id:@user.id)
+    @user = User.new(email:params['email'], password:params['password'])
+    tripbook = TripBook.create
     @user.trip_book = tripbook
     @user.save
 

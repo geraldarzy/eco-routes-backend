@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :trips
-  resources :trip_books
+  resources :trip_books do
+    resources :trips
+  end
   # resources :users 
   post '/login', to: 'users#login'
   post '/signup', to: 'users#signup'

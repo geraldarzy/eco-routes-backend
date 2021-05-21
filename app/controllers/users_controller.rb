@@ -14,7 +14,11 @@ class UsersController < ApplicationController
   end
   
   def signup
-    @user = User.create(user_params)
+    @user = User.new(user_params)
+    tripbook = TripBook.create(user_id:@user.id)
+    @user.trip_book = tripbook
+    @user.save
+
 
     if @user.valid?
       # if the user is created successfully, send back the user

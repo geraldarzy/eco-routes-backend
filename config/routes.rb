@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :trip_books
   # resources :users 
   post '/login', to: 'users#login'
   post '/signup', to: 'users#signup'

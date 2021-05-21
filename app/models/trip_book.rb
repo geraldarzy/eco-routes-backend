@@ -1,0 +1,2 @@
+class TripBook < ApplicationRecord
+end

@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       # if they gave the right info, return that user object
-      token = JWT.encode({ user_id: @user.id }, 'mysecret', 'HS256')
+      token = JWT.encode({ user_id: @user.id }, 's3cr3t', 'HS256')
       render json: { user: UserSerializer.new(@user), token: token }
     else
       # otherwise, return some error message
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    render json: @current_user
+    render json: { user: UserSerializer.new(@current_user)}
   end
 
   private

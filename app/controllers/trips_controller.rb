@@ -1,5 +1,9 @@
 class TripsController < ApplicationController
 
+    def index
+        render json: Trip.all
+    end
+
     def create
         # t.string "origin"
         # t.string "destination"
